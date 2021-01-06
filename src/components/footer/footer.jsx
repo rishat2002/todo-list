@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import TasksFilter from '../tasks-filter/tasks-filter';
 
 const Footer = ({ count, filterType, changeFilter, clearCompletedTasks }) => {
