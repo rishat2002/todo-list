@@ -11,6 +11,7 @@ class AddTask extends Component {
     this.setState({ label: inputString });
   };
 
+
   render() {
     const { label } = this.state;
     const { add } = this.props;
