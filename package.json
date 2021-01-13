@@ -6,7 +6,15 @@
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.6.0",
+    "babel-eslint": "^10.1.0",
     "date-fns": "^2.16.1",
+    "eslint": "^7.17.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "prettier": "^2.2.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
@@ -14,12 +22,11 @@
     "react-scripts": "4.0.1",
     "web-vitals": "^0.2.4"
   },
-  "husky" : {
-    "hooks" : {
-      "pre-commit":"lint-staged"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
     }
-  }
-  ,
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -48,15 +55,15 @@
     ]
   },
   "devDependencies": {
-    "husky": "^4.3.6",
+    "husky": "^4.3.7",
     "lint-staged": "^10.5.3"
   },
   "lint-staged": {
-    "*.js":[
+    "*.js": [
       "npm run lint:fix",
       "git add"
     ],
-    "*.jsx":[
+    "*.jsx": [
       "npm run lint:fix",
       "git add"
     ]
