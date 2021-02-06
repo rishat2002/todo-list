@@ -1,11 +1,16 @@
 /* eslint-disable */
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Task from '../task/task';
 
-const TaskList = ({ list, oneDeleted, checkboxOneClick }) => {
+class TaskList extends Component  {
+state = {
+  
+}
+render () {
+  const { list, oneDeleted, checkboxOneClick } = this.props
   const reactList = list.map((item) => {
-    const { active, label, id, createDate } = item;
+  const { active, label, id, createDate,  timerFunc,enableTimer} = item;
     return (
       <Task
         label={label}
@@ -18,11 +23,16 @@ const TaskList = ({ list, oneDeleted, checkboxOneClick }) => {
         key={id}
         active={active}
         createDate={createDate}
+        timerTime = {item.timerTime}
+        timerFunc = {timerFunc}
+        id={id}
+        enableTimer={enableTimer}
       />
     );
   });
   return <ul className="todo-list">{reactList}</ul>;
 };
+}
 
 TaskList.defaultProps = {
   list: [],

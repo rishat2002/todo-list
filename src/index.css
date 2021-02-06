@@ -103,12 +103,21 @@ body {
 }
 
 .new-todo {
+  width:70%;
   padding: 16px 16px 16px 60px;
   border: none;
   background: rgba(0, 0, 0, 0.003);
   box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);
 }
-
+.new-todo-form__timer{
+  width:15%;
+  border: none;
+  font-size: 24px;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: 1.4em;
+  color: inherit;
+}
 .main {
   position: relative;
   z-index: 2;
@@ -125,6 +134,12 @@ body {
   bottom: 100%;
 }
 
+.description .play,.pause {
+  font-size: 18px;
+  margin-right: 4px;
+  position: relative;
+  bottom: -3px;
+}
 .toggle-all + label {
   width: 60px;
   height: 34px;
@@ -225,14 +240,19 @@ body {
 }
 
 .todo-list li label .description {
+  position: absolute;
+  left:40%;
   word-break: break-all;
   display: block;
   line-height: 1.2;
   transition: color 0.4s;
   font-weight: 400;
   color: #4d4d4d;
+  font-size: 13px;
 }
-
+.view {
+  position: relative;
+}
 .todo-list li.completed label .description {
   color: #cdcdcd;
   text-decoration: line-through;
@@ -414,3 +434,4 @@ html .clear-completed:active {
     bottom: 10px;
   }
 }
+
