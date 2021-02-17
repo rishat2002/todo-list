@@ -1,24 +1,26 @@
-/*eslint-disable*/
 import React, { useEffect, useState  } from 'react';
 import PropTypes from 'prop-types';
 import {RightCircleTwoTone,PauseCircleTwoTone} from '@ant-design/icons';
+/* eslint-disable */
 
 const Task = ({ label, oneDeleted, checkboxOneClick, active, 
-  timerDate,timerTime,switchTimer,id ,createDate,enableTimer}) => {
+    createDate,timerTime,timerFunc,enableTimer,id }) => {
+  
+  const [time,setTime] = useState(timerTime)
   const [runTime,setRunTime] = useState(enableTimer)
-  const [count,setCount] = useState(0)
-    useEffect(()=>{
-    const s = setInterval(()=>{
-      setCount(prevCount=>prevCount+1)
-     },1000)
-     return () => {
-      clearTimeout(s)
-     }
-    },[])
-    const diffTime = Math.ceil((new Date().getTime()-timerDate.getTime())/1000+timerTime)
-    useEffect(()=>{
-    switchTimer(id,runTime,diffTime)
-    },[runTime])
+  useEffect(()=>{
+  console.log(enableTimer)
+  if (enableTimer) {   //eslint-disable-line
+    setRunTime(true)
+  }
+  },[])
+  useEffect(()=>{
+          setTime(timerTime)
+  })
+  useEffect(()=>{
+    timerFunc(runTime,id)      //eslint-disable-line
+  },[runTime])
+
     let className = '';
     if (!active) {
       className = 'completed';
@@ -32,9 +34,8 @@ const Task = ({ label, oneDeleted, checkboxOneClick, active,
       );
     }
     const creatDateString = `created ${createDate()} ago`;
-    const time = runTime?diffTime:timerTime
-    const min = Math.floor(time/60)<10?`0${Math.floor(time/60)}`:Math.floor(time/60)
-    const sec = (time-min*60)<10?`0${time-min*60}`: time-min*60 
+    const min = Math.floor(time/60)
+    const sec = time-min*60 
     return (
       <li className={className}>
         <div className="view">

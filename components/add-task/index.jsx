@@ -1,3 +1,3 @@
 import AddTask from './add-task';
 
-export default AddTask;
+export default AddTask
